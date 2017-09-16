@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Car Makers{% endblock %}
+
+{% block content %}
+<div class="border row">
+    <table class="table table-striped table-condensed">
+      <thead>
+        <tr>
+          <th>#</th>
+        <th>Car Makers</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for make in car_makers %}
+        <tr>
+          <th scope="row">{{ forloop.counter }}</th>
+          <td><a href="{% url "car:car_maker" student_id=maker.id %}">{{ car.maker }}</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+</div>
+<div class="pagination">
+  <span class="step-links">
+    {% if car_makers.has_previous %}
+      <a href="?page={{ car_makers.previous_page_number }}">previous</a>
+    {% endif %}
+
+    <span class="current">
+      Page {{ car_makers.number }} of {{ car_makers.paginator.num_pages }}.
+    </span>
+
+    {% if car_makers.has_next %}
+      <a href="?page={{ car_makers.next_page_number }}">next</a>
+    {% endif %}
+  </span>
+</div>
+{% endblock %}
