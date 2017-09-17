@@ -5,25 +5,17 @@
 {% block content %}
 <div class="row">
   <div class="col-sm-4">
-  <span class="pull-right"><h1>Car:</h1></span>
-  </div>
-  <div class="col-sm-8">
-  <h1>{{ car }}</h1>
-  </div>
-</div>
-<div class="row">
-  <div class="col-sm-4">
     <div class="container">
       <h2>Car Detail</h2>
       <table class="table">
         <tbody>
           <tr>
             <th scope="row">Vehicle Name:</th>
-            <td>{{ car.vehicle }}</td>
+            <td>{{ car.car_name }}</td>
           </tr>
           <tr>
             <th scope="row">Vehicle Maker</th>
-            <td>{{ car.vehicle_maker }}</td>
+            <td>{{ car.car_maker }}</td>
           </tr>
           <tr>
             <th scope="row">Year:</th>

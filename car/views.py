@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import permission_required
 from django.shortcuts import redirect, render, get_object_or_404
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.views import View
@@ -10,14 +11,14 @@ class IndexView(View):
         return render(request, 'car/index.html', {'section': 'index'})
 
 
-def dashboard(request):
-    return render(request, 'car/dashboard.html')
+def not_authorized(request):
+    return render(request, 'car/not_authorized.html')
 
 
-def car_detail(request):
-    # car = get_object_or_404(Car, id=car_id)
-    car = Car.objects.get(pk=12)
-    # car = get_object_or_404(Car, id=car_id)
+@permission_required('car.can_view_car_maker', 'vehicle:not_authorized')
+def car_detail(request, car_id):
+    car = get_object_or_404(Car, id=car_id)
+    # import pdb; pdb.set_trace()
     return render(request, 'car/car_detail.html', {'car': car})
 
 
@@ -57,6 +58,6 @@ def car_maker_list(request):
         # If page is out of range (e.g. 9999), deliver last page of results.
         car_makers = paginator.page(paginator.num_pages)
 
-    return render(request, 'car/car_list.html',
+    return render(request, 'car/car_maker_list.html',
                   {'car_makers': car_makers}
                   )

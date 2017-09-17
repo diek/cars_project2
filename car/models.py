@@ -7,6 +7,9 @@ class CarMaker(models.Model):
     def __str__(self):
         return self.car_maker
 
+    class Meta:
+        permissions = (('Can view car_maker', 'can_view_car_maker'),)
+
 
 class Car(models.Model):
     car_name = models.CharField(max_length=65)

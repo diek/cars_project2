@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}Cars App{% endblock %}</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  <style type="text/css">
+    .header {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .footer {
+    border-top: 1px solid #444;
+    padding-top: 20px;
+    margin-top: 20px;
+    color: #999
+  }
+
+  .p {
+    text-align: center;
+    padding-top: 120px;
+  }
+
+  .p a {
+    text-decoration: underline;
+    color: blue;
+  }
+  </style>
+</head>
+
+<body>
+<div class="container">
+
+  <!--  Header Section-->
+  <div class="row header">
+    <div class="col-xs-12 text-center">
+      <h1>Bootstrap 3-Column Grid Example</h1>
+    </div>
+  </div>
+
+ <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#">Navbar</a>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Car Makers</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Cars</a>
+      </li>
+      <li class="nav-item">
+            {% if user.is_authenticated %}
+              Hey {{ user.username }}!
+              <a href="{% url 'logout' %}">logout</a>
+            {% else %}
+              <a href="{% url 'login' %}">login</a>
+            {% endif %}
+        <a class="nav-link" href="#">Disabled</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+  <!--  Content Area-->
+  <div class="row content">
+    <div class="col-md-4 col-sm-6">
+      {% block content %}
+      {% endblock %}
+    </div>
+    <div class="col-md-4 col-sm-6">
+      <p>Donec ultricies id arcu eu semper. Sed et nisl non nisl ullamcorper sollicitudin eget ac neque. Curabitur ullamcorper elementum mi, vel tempus urna consectetur vitae. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nam faucibus et ligula id dictum. Nunc ante quam, gravida et ornare nec, fermentum eu lectus. Aenean sagittis libero non est pulvinar, quis rutrum lacus vehicula. Vivamus aliquet, ex ac placerat rutrum, tortor magna scelerisque est, tempor fermentum neque odio non metus. Cras laoreet dolor a massa dapibus semper.</p>
+    </div>
+    <div class="col-md-4 col-sm-6">
+      <p>Sed sagittis, arcu luctus sollicitudin placerat, nisi arcu elementum nisl, vel tempus ligula libero eget odio. Integer posuere velit in justo vehicula bibendum. Praesent a venenatis ligula. Duis elementum venenatis urna ut semper. Nullam tempus libero at laoreet pellentesque. Duis rhoncus at arcu pharetra congue. Donec sed egestas quam. Nam et consectetur nisi.</p>
+    </div>
+  </div>
+
+  <!--  Footer Area-->
+  <div class="row footer">
+    <div class="col-xs-12 text-center">
+      <p>&copy; 2017 derrick ltd.</p>
+    </div>
+  </div>
+
+</div>
+
+<p class="p">Derrick. <a href="understanding-bootstrap-grid-system">See article</a>.</p>

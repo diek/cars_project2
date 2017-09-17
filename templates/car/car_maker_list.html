@@ -4,6 +4,8 @@
 
 {% block content %}
 <div class="border row">
+  <div class="col-sm-2">.col-sm-4</div>
+  <div class="col-sm-6">
     <table class="table table-striped table-condensed">
       <thead>
         <tr>
@@ -15,11 +17,14 @@
         {% for make in car_makers %}
         <tr>
           <th scope="row">{{ forloop.counter }}</th>
-          <td><a href="{% url "car:car_maker" student_id=maker.id %}">{{ car.maker }}</a></td>
+          <td><a href="{% url "vehicle:maker_detail" maker_id=make.id %}">{{ make }}</a></td>
         </tr>
         {% endfor %}
       </tbody>
     </table>
+  </div>
+  <div class="col-sm-2">.col-sm-4</div>
+
 </div>
 <div class="pagination">
   <span class="step-links">
