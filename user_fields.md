@@ -8,7 +8,7 @@
 07. city = ForeignKey(City/Province)
 08. postal_code
 09. latitude
-10 longitude
+10. longitude  
 11. get_email_alerts
 12. get_sms_alerts
 13. call_IVR_alarm
