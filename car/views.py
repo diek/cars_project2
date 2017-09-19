@@ -15,7 +15,7 @@ def not_authorized(request):
     return render(request, 'car/not_authorized.html')
 
 
-@permission_required('car.can_view_car_maker', 'vehicle:not_authorized')
+# @permission_required('car.can_view_car_maker', 'vehicle:not_authorized')
 def car_detail(request, car_id):
     car = get_object_or_404(Car, id=car_id)
     # import pdb; pdb.set_trace()
