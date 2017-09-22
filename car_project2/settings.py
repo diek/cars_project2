@@ -27,7 +27,7 @@ DJANGO_APPS = [
     'django.contrib.staticfiles',
 ]
 
-LOCAL_APPS = ['car.apps.CarConfig']
+LOCAL_APPS = ['car.apps.CarConfig', 'core_user.apps.CoreUserConfig']
 
 DEBUG_TOOLS = ['django_extensions']
 

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}User List{% endblock %}
+
+{% block content %}
+
+{{ user.first_name}}
+
+{% if email_sms %}
+<ul>
+  {%  for email in email_sms %}
+    <li>{{ email }}</li>
+  {% endfor %}
+</ul>
+{% endif %}
+
+{% endblock %}
